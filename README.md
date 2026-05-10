@@ -202,13 +202,29 @@ Do not upload .env to GitHub.
 Do not upload certs/key.pem to GitHub.
 Use .env.example to show required environment variables.
 
-บันทึกไฟล์:
+## Run with Docker Compose
 
-```txt
-Ctrl + O
-Enter
-Ctrl + X
+```bash
+docker compose up -d --build
 
-จากนั้นเช็กว่า README ถูกสร้างแล้ว:
+Check running containers:
 
-head README.md
+docker compose ps
+
+Stop containers:
+
+docker compose down
+
+Reset database:
+
+docker compose down -v
+docker compose up -d --build
+
+ถ้าเพิ่ม README แล้ว อย่าลืม:
+
+```bash
+git add README.md
+git commit -m "Update README with Docker instructions"
+git push
+
+
